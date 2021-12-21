@@ -25,4 +25,54 @@ $numbers = $connection->query("SELECT * FROM numbers")->fetchAll(PDO::FETCH_ASSO
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 </head>
+<body>
+
+<? require_once('assets/header.php'); ?>
+
+<? require_once('assets/login.php'); ?>
+
+<section class="doctors">
+<div class="container">
+<h1 class="title">Наши специалисты</h1>
+
+<div class="doctors-wrapper">
+
+<? foreach($types as $type) {?>
+
+<div class="type">
+<h3 class="type__title">Стоматолог-<?=$type['title']?></h3>
+
+<div class="names">
+<? foreach($doctors as $doctor) {
+
+if ($doctor['type'] == $type['type_id']) {?>
+
+<a href="#" class="doctor-name"><?=$doctor['name']?></a>
+
+<span class="numbers_quantity">
+(свободных номерков:
+
+<?
+Подсчет номерков у каждого врача
+?>)
+</span>
+<br>
+
+<? } ?>
+
+<? } ?>
+
+</div>
+
+</div>
+
+<? } ?>
+
+</div>
+</div>
+</section>
+
+<script src="js/main.js"></script>
+
+</body>
 </html>
