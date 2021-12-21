@@ -28,4 +28,33 @@ $doctors = $connection->query("SELECT * FROM doctors")->fetchAll(PDO::FETCH_ASSO
 </div>
 </header>
 
+<!— Окошко создания номерков —>
+<section class="creating">
+<div class="container">
+<h1>Создание номерков</h1>
+<!— form - отвечает за отправку данных на сервер —>
+<!— GET - получение данных
+POST - отправление —>
+<form method="POST">
+<div class="creating-block">
+<!— <fieldset> - даст оконтовку —>
+<fieldset>
+<!— <legend> - подпись блока (в оконтовке) —>
+<legend>Врач:</legend>
+<select name="doctor" class="doctors">
+
+<? foreach ($doctors as $doctor) { ?>
+<!— = - равно echo (вывод текста) —>
+<option data-id="<?=$doctor["doctor_id"]?>" value="<?=$doctor["name"]?>"><?=$doctor["name"]?></option>
+
+
+<? } ?>
+
+</select>
+</fieldset>
+</div>
+</form>
+</div>
+</section>
 </body>
+</html>
