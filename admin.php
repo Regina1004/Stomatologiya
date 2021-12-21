@@ -85,6 +85,37 @@ POST - отправление —>
 </fieldset>
 </div>
 
+<div class="creating-block">
+<!— <fieldset> - даст оконтовку —>
+<fieldset>
+<!— <legend> - подпись блока (в оконтовке) —>
+<legend>Время:</legend>
+<input class="btn__all" type="button" data-action="check" value="Выбрать всё">
+<input class="btn__all" type="button" data-action="uncheck" value="Убрать всё">
+<?
+$minutesAdd = 30;
+$time = new DateTime("10:00");
+//$time->format("H:i") - форматирует время в строку, где H-часы, i-минуты
+
+while ($time->format("H:i") <= "17:00")
+{
+?>
+<div class="time-block">
+<!— Галочка, (номерки) —>
+<input class="time" id="<?=$time->format("H:i")?>" type="checkbox" value="<?=$time->format("H:i")?>">
+<!— Вывод —>
+<label class ="time__label" for="<?=$time->format("H:i")?>"><?=$time->format("H:i")?></label>
+</div>
+
+<?
+// . - сложение строк
+$time->add(new DateInterval("PT".$minutesAdd."M"));
+}
+?>
+</fieldset>
+</div>
+<!— submit - отправка формы —>
+<input class="submit" type="button" value="Создать">
 </form>
 </div>
 </section>
