@@ -1,3 +1,4 @@
+
 <?
 
 require_once('db/db.php'); /*подключение файла*/
@@ -53,7 +54,14 @@ if ($doctor['type'] == $type['type_id']) {?>
 (свободных номерков:
 
 <?
-Подсчет номерков у каждого врача
+$qualityNumbersThisDoctor = 0;
+
+foreach($numbers as $num)
+{
+if($num['doctor'] == $doctor['doctor_id'] && $num['status'] == "1") $qualityNumbersThisDoctor++;
+}
+
+echo $qualityNumbersThisDoctor;
 ?>)
 </span>
 <br>
