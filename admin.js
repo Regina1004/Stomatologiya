@@ -56,5 +56,55 @@ for (let i=0; i<timeNumbers.length; i++)
 timeNumbers[i].removeAttribute('checked');
 }
 });
+
+
+//Создать
+submit.addEventListener('click', function(event)
+{
+let
+doctors = doctorsSelect.querySelectorAll('option'),
+doctorId = 0,
+date,
+dateFrom,
+dateTo,
+numderItems = $('.time'), /* == document.querySelectorAll('time')*/
+numbers = [];
+
+doctors.forEach(function(elem, index) /*foreach (var elem in doctors)*/
+{
+if (elem.value == doctorsSelect.value) /*doctorsSelect.value - тот доктор, которого выбрали на сайте, elem.value - все доктора в списке*/
+{
+doctorId = elem.getAttribute("data-id");
+return;
+}
 });
 
+if(isDateRange)
+{
+dateFrom = $(".date__range[data-range='from']").val();
+dateTo = $(".date__range[data-range='to']").val();
+
+if (dateFrom == "" || dateTo == "") return;
+
+date =
+{
+from: dateFrom,
+to: dateTo
+}
+}
+
+else
+{
+date = $(".date__one").val();
+}
+
+if (date == "" || date == undefined || date == null) return;
+
+numderItems.each(function() /*foreach (var this in numbersItems)*/
+{
+if($(this).prop("checked")) /*this-каждый*/
+numbers.push($(this).val());
+});
+
+if (numbers.length == 0) return;
+});
