@@ -107,4 +107,27 @@ numbers.push($(this).val());
 });
 
 if (numbers.length == 0) return;
+
+let data = {
+doctorId: doctorId,
+isDateRange: isDateRange,
+date: date,
+numbers: numbers
+}
+
+$.ajax({
+type: 'POST',
+data: data,
+url: '../actions/set_numbers.php',
+success: function(res)
+{
+alert("Успешно");
+},
+error: function()
+{
+alert("Ошибка");
+}
+});
+
+});
 });
