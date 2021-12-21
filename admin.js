@@ -46,5 +46,15 @@ for (let i=0; i<timeNumbers.length; i++)
 timeNumbers[i].setAttribute('checked', 'checked');
 }
 });
+
+
+//Убрать все
+btnUncheckAllNumbers.addEventListener('click', function(event)
+{
+for (let i=0; i<timeNumbers.length; i++)
+{
+timeNumbers[i].removeAttribute('checked');
+}
+});
 });
 
