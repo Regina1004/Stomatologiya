@@ -53,6 +53,38 @@ POST - отправление —>
 </select>
 </fieldset>
 </div>
+
+
+<div class="creating-block">
+<!— <fieldset> - даст оконтовку —>
+<fieldset>
+<!— <legend> - подпись блока (в оконтовке) —>
+<legend>Дата:</legend>
+<div class="date-radio">
+<!— radio - выбор одного блока —>
+<!— name="set-date-type" - для того, чтобы работал только один —>
+<input type="radio" id="one" name="set-date-type" value="one" checked>
+<!— label - связывает название с самой кнопкой (когда тыкаешь на имя, он сам выбирает определенный кружочек "one") —>
+<label for="one">Один день</label>
+
+<!— checked - выбор по умолчанию —>
+<input type="radio" id="range" name="set-date-type" value="range">
+<label for="range">Диапазон</label>
+
+<div class="date-block-one">
+<input class="date__one" type="date">
+</div>
+
+<div class="date-block-range">
+с
+<input class="date__range" type="date" data-range="from">
+по
+<input class="date__range" type="date" data-range="to">
+</div>
+</div>
+</fieldset>
+</div>
+
 </form>
 </div>
 </section>
