@@ -9,7 +9,7 @@ dateRange = document.querySelector('.date-block-range'),
 btnCheckAllNumbers = document.querySelector('.btn__all[data-action="check"]'),
 btnUncheckAllNumbers = document.querySelector('.btn__all[data-action="uncheck"]'),
 timeNumbers = document.querySelectorAll('.time'),
-submit = document.querySelector('.submit'), /*Кнопка создать*/
+submit = document.querySelector('.submit'), /*Кнопка созздать*/
 isDateRange = false;
 
 
@@ -36,4 +36,15 @@ dateRange.style.display = 'block';
 }
 }
 });
+
+
+//Выбрать все
+btnCheckAllNumbers.addEventListener('click', function(event)
+{
+for (let i=0; i<timeNumbers.length; i++)
+{
+timeNumbers[i].setAttribute('checked', 'checked');
+}
 });
+});
+
